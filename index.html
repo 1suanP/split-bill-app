@@ -84,7 +84,7 @@
 	<input
 		type="number"
 		id="billAmount"
-		placebirth="e.g 120.00"
+		placeholder="e.g 120.00"
 		min="0"
 		step="0.01"
 	>
@@ -93,7 +93,10 @@
 
 	<button onclick="calculateBill()">Claculate Bill</button>
 	
-	<p id="billResult">Enter your bill amount and select the number of people first.</p>
+	<p id="billResult">
+		Enter your bill amount and select the number of people first.
+	</p>
+	
 </section>
 
 <script>
@@ -104,23 +107,29 @@
 
 		document.getElementById("peopleMessage").textContent = 
 			"You selected" + number +
-			(number === 1? "person." : "people.");
+			(number === 1 ? "person." : "people.");
 	}
 
 	function calculateBill() {
-		const billAmount = parseFloat(
-			document.getElementById("billAmount").value
-		);
+		const billInput = document.getElementById("billAmount");
+		const result = document.getElementById("BillResult");
+		const billAmount = parseFloat(billInput.value);
 
 		if (selectedPeople === 0) {
-			document.getElementById("billResult") .textContent =
+			result.textContent =
 				"Please select the number of people first.";
+			return;
+		}
+
+		if (isNaN(billAmount) || billAmount <=0){
+			result.textContent = 
+				"Please enter a valid bill amount.";
 			return;
 		}
 
 		const amountperPerson = billAmount / selectPeoPle;
 
-		document.getElementById ("billResult").textContent =
+		result.textContent =
 			"Each person pay RM" + amountPerPerson.toFixed(2);
 	}
 	
