@@ -22,20 +22,20 @@
 
     p {
       font-size: 18px;
-      color: #66736a:
+      color: #66736a;
     }
   
   section {
     background-color: white;
     max-width: 600px;
     margin: 30px auto;
-    padding:25px:
+    padding: 25px;
     border-radius: 16px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   }
   h2 {
     font-size: 22px;
-    margin-button: 20px;
+    margin-buttom: 20px;
   }
 
   button {
@@ -50,7 +50,7 @@
   }
     
   button:hover{
-    background-color: #167d62;
+    background-colour: #167d62;
     color: white;
   }
 	</style>
@@ -112,7 +112,7 @@
 
 	function calculateBill() {
 		const billInput = document.getElementById("billAmount");
-		const result = document.getElementById("BillResult");
+		const result = document.getElementById("billResult");
 		const billAmount = parseFloat(billInput.value);
 
 		if (selectedPeople === 0) {
@@ -127,7 +127,7 @@
 			return;
 		}
 
-		const amountperPerson = billAmount / selectPeoPle;
+		const amountPerPerson = billAmount / selectedPeoPle;
 
 		result.textContent =
 			"Each person pay RM" + amountPerPerson.toFixed(2);
