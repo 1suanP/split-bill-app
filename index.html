@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang = "en"> <!--define webpage used language is Englisg-->
+<head>
+  <meta charest = "UTF-8"> <!--allow page display english/characters correctly-->
+  <title>Split Bill</title>
+
+  <!--CSS for decorection UI/UX-->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-colour: #f4f7f4;
+      color: #26352c;
+      margin: 0;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #167d62;
+      font-size: 36px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #66736a:
+    }
+  
+  section {
+    background-color: white;
+    max-width: 600px;
+    margin: 30px auto;
+    padding:25px:
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  }
+  h2 {
+    font-size: 22px;
+    margin-button: 20px;
+  }
+
+  button {
+    background-colour: #e5f5ed;
+    color: #167d62;
+    border: 1px solid #c8e8d8;
+    padding: 12px 16px;
+    margin: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+    
+  button:hover{
+    background-color: #167d62;
+    color: white;
+  }
+	</style>
+</head>
+
+<body>
+
+	<header>
+ 	 	<h1> 🍽️ Split Bill </h1>
+  	<p> Split your meal, not your friendship. </p>
+  </header>
+	
+<section>
+    <h2> 👥 Choose People </h2>
+
+    <button onclick= "selectPeople(1)">1 Person</button>
+    <button onclick= "selectPeople(2)">2 Person</button>
+    <button onclick= "selectPeople(3)">3 Person</button>
+    <button onclick= "selectPeople(4)">4 Person</button>
+    <button onclick= "selectPeople(5)">5 Person</button>
+
+		<p id= "peopleMessage"> Please select the number of people.</p>
+</section>
+
+<section>
+	<h2> Enter Bill Amount</h2>
+
+	<label for="billAmount">Total bill (RM):</label>
+	<br><br>
+
+	<input
+		type="number"
+		id="billAmount"
+		placebirth="e.g 120.00"
+		min="0"
+		step="0.01"
+	>
+
+	<br><br>
+
+	<button onclick="calculateBill()">Claculate Bill</button>
+	
+	<p id="billResult">Enter your bill amount and select the number of people first.</p>
+</section>
+
+<script>
+	let selectedPeople = 0;
+
+	function selectPeople(number) {
+		selectedPeople = number;
+
+		document.getElementById("peopleMessage").textContent = 
+			"You selected" + number +
+			(number === 1? "person." : "people.");
+	}
+
+	function calculateBill() {
+		const billAmount = parseFloat(
+			document.getElementById("billAmount").value
+		);
+
+		if (selectedPeople === 0) {
+			document.getElementById("billResult") .textContent =
+				"Please select the number of people first.";
+			return;
+		}
+
+		const amountperPerson = billAmount / selectPeoPle;
+
+		document.getElementById ("billResult").textContent =
+			"Each person pay RM" + amountPerPerson.toFixed(2);
+	}
+	
+</script>
+  
+  
+</body>
+</html>
+
